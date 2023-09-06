@@ -1,0 +1,37 @@
+{
+  "name": "mongodb-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/main.ts",
+    "build": "tsc -p .",
+    "seed": "ts-node ./src/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "@prisma/client": "5.2.0",
+    "@types/graphql": "^14.5.0",
+    "express": "^4.18.2",
+    "graphql": "^16.8.0",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "@types/graphql-fields": "^1.3.5",
+    "dotenv": "^16.3.1",
+    "graphql-fields": "^2.0.3",
+    "graphql-scalars": "^1.22.2",
+    "nodemon": "^3.0.1",
+    "pnpm": "^8.7.4",
+    "prisma": "^5.2.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
+    "type-graphql": "2.0.0-beta.3",
+    "typegraphql-prisma": "^0.27.0",
+    "typescript": "^5.2.2"
+  }
+}

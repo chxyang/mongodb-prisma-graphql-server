@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+}
+
+type UsersProfile {
+  bio String
+}
+
+model categories {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int      @map("__v")
+  created_at DateTime @db.Date
+  name       String   @unique(map: "name_1")
+  /// Could not determine type: the field only had null or empty values in the sample set.
+  products   Json?
+  updated_at DateTime @db.Date
+}
+
+model posts {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int      @map("__v")
+  author     String
+  categories String[]
+  content    String
+  created_at DateTime @db.Date
+  title      String
+  updated_at DateTime @db.Date
+}
+
+model users {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int          @map("__v")
+  created_at DateTime     @db.Date
+  email      String       @unique(map: "email_1")
+  name       String       @unique(map: "name_1")
+  /// Could not determine type: the field only had null or empty values in the sample set.
+  posts      Json?
+  profile    UsersProfile
+  updated_at DateTime     @db.Date
+  /// Field referred in an index, but found no data to define the type.
+  username   Json?        @unique(map: "username_1")
+}
