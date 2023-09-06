@@ -1,3 +1,5 @@
+
+// create a schema for user
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
